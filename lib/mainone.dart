@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart'as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import 'final.dart';
 
@@ -17,7 +16,6 @@ class SubcategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('S U B C A T E G O R I E S',style: TextStyle(
-
             fontWeight: FontWeight.w600,
             fontSize: 25
         ),),

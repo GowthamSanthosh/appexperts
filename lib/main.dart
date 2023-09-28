@@ -34,15 +34,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Simulate a delay (5 seconds) for the splash screen
     Future.delayed(Duration(seconds: 5), () {
-      // After the delay, navigate to the category screen
-      Get.to(CategoryScreen());// Use GetX for navigation
+      Get.to(CategoryScreen());
     });
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

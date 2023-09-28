@@ -63,7 +63,18 @@ class _ProductListState extends State<ProductList> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return  products.isEmpty
+        ? const Center(child:
+    Center(child:
+    Column(crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(Icons.hourglass_empty_outlined,size: 30,),
+        Text('None',style: TextStyle(fontSize: 25),),
+      ],
+    )),
+    )
+        : ListView.builder(
       itemCount: products.length,
       itemBuilder: (context, index) {
         final product = products[index];
@@ -72,32 +83,40 @@ class _ProductListState extends State<ProductList> {
             elevation: 40,
             child: Padding(
             padding: const EdgeInsets.all(8.0),
-        child: Container( decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-        BoxShadow(
-        color: Colors.black.withOpacity(0.2),
-        spreadRadius: 5,
-        blurRadius: 7,
-        offset: const Offset(0, 3),
-        ),
-        ], // Shadow
-        gradient: const LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [Colors.yellowAccent, Colors.blueGrey], // Define your gradient colors
-        ),
-        ),
-          child: ListTile(
-            title: Text(product['Name'],style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            ),),
-            subtitle: Text('Price: \$${product['SellingCost']}'),
-            // Add more product details as needed
+              child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ], // Shadow
+                gradient: const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Colors.yellowAccent,
+                    Colors.blueGrey
+                  ], // Define your gradient colors
+                ),
+              ),
+              child: ListTile(
+                title: Text(
+                  product['Name'],
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                subtitle: Text('Price: \$${product['SellingCost']}'),
+                // Add more product details as needed
+              ),
+            ),
           ),
-        ),
-            ),  );
+        );
       },
     );
   }

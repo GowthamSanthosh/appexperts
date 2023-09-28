@@ -2,12 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart'as http;
 import 'mainone.dart';
 
 
 class CategoryScreen extends StatelessWidget {
+  const CategoryScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +22,8 @@ class CategoryScreen extends StatelessWidget {
 }
 
 class CategoryList extends StatefulWidget {
+  const CategoryList({super.key});
+
   @override
   _CategoryListState createState() => _CategoryListState();
 }
